@@ -76,8 +76,15 @@ def chalk_effect(img):
 # Do not change the random seed to maintain reproducibility of the experiments
 random.seed(43)
 # Change the value to scale up the dataset size
-NK_Value = 10
-output_folder = "DataSet%dKHDIB"%NK_Value
+
+
+NK_VALUE_MAP = {
+    'train': 10,
+    'test': 1,
+    'val': 1,
+}
+
+output_folder = "DataSet%dKHDIB_"%NK_VALUE_MAP['train']
 
 
 try:
@@ -88,9 +95,10 @@ except:
 
 divisions = ['train', 'test', 'val']
 
+
 for div in divisions:
     print("###########   ", div, "  ############")
-
+    NK_Value = NK_VALUE_MAP[div]
     content_folder = "Content/%s/"%div
     page_folder = "Pages/%s/"%div
     texture_folder = "page_texture/%s/"%div
