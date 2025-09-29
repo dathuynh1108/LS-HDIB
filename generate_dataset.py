@@ -76,7 +76,7 @@ def chalk_effect(img):
 # Do not change the random seed to maintain reproducibility of the experiments
 random.seed(43)
 # Change the value to scale up the dataset size
-NK_Value = 1
+NK_Value = 10
 output_folder = "DataSet%dKHDIB"%NK_Value
 
 
@@ -211,6 +211,5 @@ for div in divisions:
                 cv2.imwrite(output_path+"/input_%d.jpg"%count, input_img)
                 cv2.imwrite(GT_path+"/mask_%d.jpg"%count, gt_img_wrapped)
                 count+=1
+
         print("Images Generated : ", count)
-        if count> 200:
-            break
